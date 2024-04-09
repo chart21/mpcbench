@@ -1,24 +1,9 @@
-#This script defines the variables for the network setup and required sofware
-#The repos need to be changed to the framework and the specific version of sevarebench
-#The networking environment data is specific to the TUM testbed
-
-repo_mpspdz: https://github.com/data61/MP-SPDZ.git
-repo_mpspdz_dir: /root/MP-SPDZ
-
-repo_hpmpc_dir: /root/HPMPC
-repo_hpmpc: https://github.com/chart21/hpmpc.git
-repo_hpmpc_commit: f19aefd638ea7b3d90dcfb5024fdeed422e5f3b7
-
-repo_mpslice_dir: /root/MP-Slice
-repo_mpslice: https://github.com/aSlunk/hpmpc.git
-repo_mpslice_commit: f19aefd638ea7b3d90dcfb5024fdeed422e5f3b7
-
-repo_motion_dir: /root/MOTION
-repo_motion: https://github.com/jonasschiller/motion.git
-
-repo: https://github.com/chart21/mpcbench.git
+repo: https://github.com/chart21/hpmpc.git
+repo_commit: f19aefd638ea7b3d90dcfb5024fdeed422e5f3b7
+repo_dir: /root/MP-Slice
+repo2: https://github.com/chart21/sevareslice.git
 # changing the repo_paths requires changing them in pos_helper.sh too
-repo_dir: /root/mpcbench
+repo2_dir: /root/sevarebench
 repoupload: git@github.com:chart21/sevaremeasurements.git
 
 #######
@@ -48,6 +33,22 @@ valgaNIC1: ens5f1
 valgaNIC0: ens5f0
 raplaNIC1: enp130s0f0
 
+## testbedCoinbase NIC configuration
+# 25G
+
+# OLD TOPOLOGY
+# idexNIC0: ens7f0
+# idexNIC1: ens7f1
+# idexNIC2: ens4f1
+# meldNIC0: ens4f1
+# meldNIC1: ens7f0
+# meldNIC2: ens7f1
+# tinymanNIC0: ens7f0
+# tinymanNIC1: ens7f1
+# tinymanNIC2: ens4f1
+# yieldlyNIC0: ens4f1
+# yieldlyNIC1: ens7f0
+# yieldlyNIC2: ens7f1
 
 # NEW TOPOLOGY
 idexNIC0: ens4f0
@@ -63,6 +64,27 @@ yieldlyNIC0: ens4f1
 yieldlyNIC1: ens2f1
 yieldlyNIC2: ens4f0
 
+### 25G
+##gardNIC0: enp194s0f0
+##goracleNIC1: enp194s0f0
+##goracleNIC0: enp193s0f1
+##zoneNIC1: enp193s0f1
+##zoneNIC0: enp194s0f0
+##gardNIC1: enp194s0f1
+
+# OLD TOPOLOGY
+# algofiNIC0: enp193s0f1
+# algofiNIC1: enp195s0f0
+# algofiNIC2: enp195s0f1
+# gardNIC0: enp195s0f0
+# gardNIC1: enp195s0f1
+# gardNIC2: enp193s0f1
+# goracleNIC0: enp193s0f1
+# goracleNIC1: enp195s0f1
+# goracleNIC2: enp195s0f0
+# zoneNIC0: enp195s0f1
+# zoneNIC1: enp195s0f0
+# zoneNIC2: enp193s0f1
 
 # NEW TOPOLOGY
 algofiNIC0: enp195s0f1    # To Gard
@@ -81,51 +103,14 @@ zoneNIC2: enp195s0f1      # To Goracle
 
 
 
-## testbedCoinbase NIC configuration
-# 25G
-# Intel Nodes
-# NEW TOPOLOGY
-# idexNIC0: ens2f1
-# idexNIC1: ens4f1
-# idexNIC2: ens4f0
-# meldNIC0: ens4f0
-# meldNIC1: ens2f1
-# meldNIC2: ens4f1
-# tinymanNIC0: ens4f0
-# tinymanNIC1: ens4f1
-# tinymanNIC2: ens4f1
-# yieldlyNIC0: ens2f1
-# yieldlyNIC1: ens4f0
-# yieldlyNIC2: ens2f1
-
-#idexNIC0: ens4f0
-#idexNIC1: ens2f1
-#idexNIC2: ens4f1
-#meldNIC0: ens4f0
-#meldNIC1: ens2f1
-#meldNIC2: ens4f1
-#tinymanNIC0: ens4f0
-#tinymanNIC1: ens2f1
-#tinymanNIC2: ens4f1
-#yieldlyNIC0: ens4f1
-#yieldlyNIC1: ens2f1
-#yieldlyNIC2: ens4f0
-
-# 25G
-##gardNIC0: enp194s0f0
-##goracleNIC1: enp194s0f0
-##goracleNIC0: enp193s0f1
-##zoneNIC1: enp193s0f1
-##zoneNIC0: enp194s0f0
-##gardNIC1: enp194s0f1
 
 # 100G temporary indirect with gard as center node
-#gardNIC0: enp129s0f0
-#goracleNIC0: enp129s0f0
-##goracleNIC1: enp129s0f0
-##zoneNIC1: enp129s0f0
-#zoneNIC0: enp129s0f0np0
-#gardNIC1: enp129s0f1
+###gardNIC0: enp129s0f0
+###goracleNIC0: enp129s0f0
+####goracleNIC1: enp129s0f0
+####zoneNIC1: enp129s0f0
+###zoneNIC0: enp129s0f0np0
+###gardNIC1: enp129s0f1
 
 ## testbedSpringfield NIC configuration
 bartNIC0: enp4s0
