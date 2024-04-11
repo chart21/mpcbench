@@ -61,7 +61,7 @@ pip3 install -U numpy
 checkConnection "github.com"
 
 git clone "$REPO" "$REPO_DIR" # hpmcp
-git clone "$REPO2" "$REPO2_DIR" # mpcbench
+git clone -b mp-slice "$REPO2" "$REPO2_DIR" # mpcbench
 wget https://github.com/data61/MP-SPDZ/releases/download/v0.3.8/mp-spdz-0.3.8.tar.xz
 tar -xf mp-spdz-0.3.8.tar.xz 
 mv mp-spdz-0.3.8 "$REPO3_DIR" # MP-SPDZ
