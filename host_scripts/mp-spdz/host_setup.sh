@@ -49,7 +49,7 @@ apt install -y automake git libboost-dev libboost-thread-dev \
     python3-pip time parted software-properties-common iperf3
 pip3 install -U numpy torch
 checkConnection "github.com"
-git clone "$REPO2" "$REPO2_DIR"
+git clone -b mp-slice "$REPO2" "$REPO2_DIR"
 
 # load custom htop config
 mkdir -p .config/htop
