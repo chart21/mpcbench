@@ -11,7 +11,7 @@ set -e
 set -x
 
 # load global variables
-REPO_DIR=$(pos_get_variable repo_hpmpc_dir --from-global) # hpmpc
+REPO_DIR=$(pos_get_variable repo_mpslice_dir --from-global) # hpmpc
 REPO2_DIR=$(pos_get_variable repo_dir --from-global) # mpcbench
 REPO3_DIR=$(pos_get_variable repo_mpspdz_dir --from-global) # mpspdz
 manipulate=$(pos_get_variable manipulate --from-global)

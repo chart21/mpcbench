@@ -66,7 +66,6 @@ wget https://github.com/data61/MP-SPDZ/releases/download/v0.3.8/mp-spdz-0.3.8.ta
 tar -xf mp-spdz-0.3.8.tar.xz 
 mv mp-spdz-0.3.8 "$REPO3_DIR" # MP-SPDZ
 
-
 ################################# mpcbench ####################################
 cd "$REPO2_DIR" # mpcbench
 # git checkout fix
@@ -102,4 +101,5 @@ echo "global setup successful"
 cd "$REPO3_DIR"
 
 cp "$REPO_DIR"/MP-SPDZ/Functions/bench/* ./Programs/Source/
+
 
