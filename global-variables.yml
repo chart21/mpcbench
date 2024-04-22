@@ -10,7 +10,7 @@ repo_hpmpc: https://github.com/chart21/hpmpc.git
 repo_hpmpc_commit: f19aefd638ea7b3d90dcfb5024fdeed422e5f3b7
 
 repo_mpslice_dir: /root/MP-Slice
-repo_mpslice: https://github.com/chart21/hpmpc.git
+repo_mpslice: https://github.com/aSlunk/hpmpc.git
   #repo_mpslice: https://github.com/aSlunk/hpmpc.git
 repo_mpslice_commit: f19aefd638ea7b3d90dcfb5024fdeed422e5f3b7
 
