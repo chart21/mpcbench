@@ -57,7 +57,7 @@ apt install libeigen3-dev
 # echo 'export LD_LIBRARY_PATH="/usr/local/llvm-16/lib:$LD_LIBRARY_PATH"' >> ~/.bashrc
 # source ~/.bashrc
 
-pip3 install -U numpy
+pip3 install -U numpy torch
 checkConnection "github.com"
 
 git clone "$REPO" "$REPO_DIR" # hpmcp
