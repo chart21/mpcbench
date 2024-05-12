@@ -54,29 +54,8 @@ case " ${types[*]} " in
         setQuota;;&
     *" FREQS "*)
         setFrequency;;&
-    *" BANDWIDTHS "*)
-        # check whether to manipulate a combination
-        case " ${types[*]} " in
-            *" LATENCIES "*)
-            case " ${types[*]} " in
-                *" PACKETDROPS "*)
-                    setAllParameters "$partysize";;
-                *)
-                setLatencyBandwidth;;
-            esac;;                 
-            *" PACKETDROPS "*) # a.k.a. packet loss
-                setBandwidthPacketdrop;;
-            *)
-                limitBandwidth;;
-        esac;;
-    *" LATENCIES "*)
-        if [[ " ${types[*]} " == *" PACKETDROPS "* ]]; then
-            setPacketdropLatency
-        else
-            setLatency
-        fi;;
-    *" PACKETDROPS "*)
-        setPacketdrop;;
+    *" BANDWIDTHS "*|*" LATENCIES "*|*" PACKETDROPS "*)
+        setNetworkParameters "$partysize";;&
 esac
 
 ####
@@ -105,10 +84,10 @@ for i in $(seq 2 $((partysize+1))); do
 done
 if [ -n "$param2" ]; then
     # run the SMC protocol
-    $skip || /usr/bin/time -f "$timerf" python /root/mpcbench/experiments/"$FRAMEWORK"/"$EXPERIMENT"/experiment.py $partystring -I $player $size $param2 &> "$log" || success=false
+    $skip || /usr/bin/time -f "$timerf" python /root/sevarebenchabstract/experiments/"$FRAMEWORK"/"$EXPERIMENT"/experiment.py $partystring -I $player $size $param2 &> "$log" || success=false
 else
     # run the SMC protocol
-    $skip || /usr/bin/time -f "$timerf" python /root/mpcbench/experiments/"$FRAMEWORK"/"$EXPERIMENT"/experiment.py $partystring -I $player $size &> "$log" || success=false
+    $skip || /usr/bin/time -f "$timerf" python /root/sevarebenchabstract/experiments/"$FRAMEWORK"/"$EXPERIMENT"/experiment.py $partystring -I $player $size &> "$log" || success=false
 fi
 
 
