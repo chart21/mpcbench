@@ -83,7 +83,7 @@ cd "$REPO_DIR" # hpmpc
 
 # switch to fork
 # git checkout extended
-git checkout combined
+git checkout mp-spdz
 
 # git clone https://github.com/chart21/flexNN.git SimpleNN
 # cd SimpleNN
