@@ -61,6 +61,9 @@ pip3 install -U numpy torch
 checkConnection "github.com"
 
 git clone "$REPO" "$REPO_DIR" # hpmcp
+cd "$REPO_DIR" # hpmpc
+git checkout mp-spdz
+cd ..
 git clone -b mp-slice "$REPO2" "$REPO2_DIR" # mpcbench
 wget https://github.com/data61/MP-SPDZ/releases/download/v0.3.8/mp-spdz-0.3.8.tar.xz
 tar -xf mp-spdz-0.3.8.tar.xz 
@@ -76,14 +79,12 @@ mkdir -p .config/htop
 cp "$REPO2_DIR"/helpers/htoprc ~/.config/htop/
 
 ################################### hpmpc #####################################
-cd "$REPO_DIR" # hpmpc
 
 # use a stable state of the MP-Slice repo
 ###git checkout "$REPO_COMMIT"
 
 # switch to fork
 # git checkout extended
-git checkout mp-spdz
 
 # git clone https://github.com/chart21/flexNN.git SimpleNN
 # cd SimpleNN
