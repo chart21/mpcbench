@@ -100,9 +100,6 @@ runExperiment() {
 		if [ "$FRAMEWORK" == "hpmpc" ]; then
 			"$POS" comm laun --blocking --loop "$node" -- /bin/bash "$script" "$player" "${TTYPES[*]}" "$NETWORK" "${#NODES[*]}" "$ETYPE" &
 			PIDS+=( $! )
-		elif [ "$FRAMEWORK" == "mp-slice" ]; then
-			"$POS" comm laun --blocking --loop "$node" -- /bin/bash "$script" "$player" "${TTYPES[*]}" "$NETWORK" "${#NODES[*]}" "$ETYPE" &
-			PIDS+=( $! )
 		elif [ "$FRAMEWORK" == "mpyc" ]; then
 			"$POS" comm laun --blocking --loop "$node" -- /bin/bash "$script" "$EXPERIMENT" "$player" "${TTYPES[*]}" "$NETWORK" "${#NODES[*]}" "$ETYPE" "$FRAMEWORK" &
 			PIDS+=( $! )
