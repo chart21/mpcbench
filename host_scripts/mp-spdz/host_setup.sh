@@ -13,6 +13,7 @@ REPO=$(pos_get_variable repo_mpspdz --from-global)
 REPO_DIR=$(pos_get_variable repo_mpspdz_dir --from-global)
 REPO2=$(pos_get_variable repo --from-global)
 REPO2_DIR=$(pos_get_variable repo_dir --from-global)
+REPO2_COMMIT=$(pos_get_variable repo_commit --from-global)
 EXPERIMENT=$(pos_get_variable experiment --from-global)
 FRAMEWORK=$(pos_get_variable framework --from-global)
 # SMC protocols to compile
@@ -49,7 +50,7 @@ apt install -y automake git libboost-dev libboost-thread-dev \
     python3-pip time parted software-properties-common iperf3
 pip3 install -U numpy torch
 checkConnection "github.com"
-git clone "$REPO2" "$REPO2_DIR"
+git clone -b "$REPO2_COMMIT" "$REPO2" "$REPO2_DIR"
 
 # load custom htop config
 mkdir -p .config/htop

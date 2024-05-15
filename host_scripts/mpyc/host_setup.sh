@@ -15,7 +15,7 @@ set -x
 
 REPO=$(pos_get_variable repo --from-global)
 REPO_DIR=$(pos_get_variable repo_dir --from-global)
-
+REPO2_COMMIT=$(pos_get_variable repo_commit --from-global)
 # check WAN connection, waiting helps in most cases
 checkConnection() {
     address=$1
@@ -43,6 +43,7 @@ pip3 install -U mpyc
 # Clone the benchmarking tool 
 checkConnection "github.com"
 git clone "$REPO" "$REPO_DIR"
+git clone -b "$REPO2_COMMIT" "$REPO2" "$REPO2_DIR"
 chmod -R 770 "$REPO_DIR"
 # load custom htop config
 mkdir -p .config/htop

@@ -13,6 +13,7 @@ REPO_COMMIT=$(pos_get_variable repo_mpslice_commit --from-global)
 REPO_DIR=$(pos_get_variable repo_mpslice_dir --from-global)
 REPO2=$(pos_get_variable repo --from-global)
 REPO2_DIR=$(pos_get_variable repo_dir --from-global)
+REPO2_COMMIT=$(pos_get_variable repo_commit --from-global)
 REPO3=$(pos_get_variable repo_mpspdz --from-global)
 #REPO_COMMIT=$(pos_get_variable repo_commit --from-global)       
 REPO3_DIR=$(pos_get_variable repo_mpspdz_dir --from-global)
@@ -61,7 +62,7 @@ pip3 install -U numpy torch
 checkConnection "github.com"
 
 git clone "$REPO" "$REPO_DIR" # hpmcp
-git clone -b mp-slice "$REPO2" "$REPO2_DIR" # mpcbench
+git clone -b "$REPO2_COMMIT" "$REPO2" "$REPO2_DIR" # mpcbench
 wget https://github.com/data61/MP-SPDZ/releases/download/v0.3.8/mp-spdz-0.3.8.tar.xz
 tar -xf mp-spdz-0.3.8.tar.xz 
 mv mp-spdz-0.3.8 "$REPO3_DIR" # MP-SPDZ
