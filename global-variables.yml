@@ -12,7 +12,7 @@ repo_hpmpc_commit: f19aefd638ea7b3d90dcfb5024fdeed422e5f3b7
 repo_motion_dir: /root/MOTION
 repo_motion: https://github.com/jonasschiller/motion.git
 
-repo: https://github.com/chart21/mpcbench.git
+repo: https://github.com/chart21/mpcbench.git -b merge
 # changing the repo_paths requires changing them in pos_helper.sh too
 repo_dir: /root/mpcbench
 repoupload: git@github.com:chart21/sevaremeasurements.git
