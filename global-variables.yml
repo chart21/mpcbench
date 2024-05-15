@@ -2,6 +2,10 @@
 #The repos need to be changed to the framework and the specific version of sevarebench
 #The networking environment data is specific to the TUM testbed
 
+repo_mpslice_dir: /root/MP-Slice
+repo_mpslice: https://github.com/aSlunk/hpmpc.git
+repo_mpslice_commit: f19aefd638ea7b3d90dcfb5024fdeed422e5f3b7
+
 repo_mpspdz: https://github.com/data61/MP-SPDZ.git
 repo_mpspdz_dir: /root/MP-SPDZ
 

@@ -493,6 +493,48 @@ setParameters() {
         [ "$manipulate" != "6666" ] && echo "    manipulate: $manipulate"
         echo "  Summary file = $SUMMARYFILE"
         } | tee "$SUMMARYFILE"
+    elif [ "$FRAMEWORK" == "mp-slice" ]; then
+        echo "mp-slice detected"
+        # set experiment wide variables (append random num to mitigate conflicts)
+        # if value may contain a leading 0 (zero), add any char before (like manipulate)
+        # Config Vars
+        PROTOCOL=("${PROTOCOLS[@]}")
+        configvars=( OPTSHARE PACKBOOL SPLITROLES PROTOCOL PREPROCESS DATATYPE )
+        configvars+=( SSL THREADS FUNCTION TXBUFFER RXBUFFER VERIFYBUFFER)
+        for type in "${configvars[@]}"; do
+            declare -n ttypes="${type}"
+            parameters="${ttypes[*]}"
+            echo "${type,,}: [${parameters// /, }]" >> "$loopvarpath"
+        done
+        # Experiment run summary information output
+        SUMMARYFILE="$EXPORTPATH/Eslice-run-summary.dat"
+        mkdir -p "$SUMMARYFILE" && rm -rf "$SUMMARYFILE"
+        {
+            echo "  Setup:"
+            echo "    Experiment = $EXPERIMENT $ETYPE"
+            echo "    Nodes = ${NODES[*]}"
+            echo "    Internal network = 10.10.$NETWORK.0/24"
+            echo "    Function: ${FUNCTION[*]}"
+            echo "    Protocols: ${PROTOCOL[*]}"
+            echo "    Datatypes = ${DATATYPE[*]}"
+            echo "    Inputs = ${INPUTS[*]}"
+            echo "    Preprocessing: ${PREPROCESS[*]}"
+            echo "    SplitRoles: ${SPLITROLES[*]}"
+            echo "    Pack Bool: ${PACKBOOL[*]}"
+            echo "    Optimized Sharing: ${OPTSHARE[*]}"
+            echo "    SSL: ${SSL[*]}"
+            echo "    Threads: ${THREADS[*]}"
+            echo "    txBuffer: ${TXBUFFER[*]}"
+            echo "    rxBuffer: ${RXBUFFER[*]}"
+            echo "    verifyBuffer: ${VERIFYBUFFER[*]}"
+            [ "$manipulate" != "6666" ] && echo "    manipulate: $manipulate"
+            echo "    Testtypes:"
+            for type in "${TTYPES[@]}"; do
+                declare -n ttypes="${type}"
+                echo -e "      $type\t= ${ttypes[*]}"
+            done
+            echo "  Summary file = $SUMMARYFILE"
+            } | tee "$SUMMARYFILE"
     elif [ "$FRAMEWORK" == "hpmpc" ]; then
         echo "hpmpc detected"
         # set experiment wide variables (append random num to mitigate conflicts)
