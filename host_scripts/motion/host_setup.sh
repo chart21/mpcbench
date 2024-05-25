@@ -85,6 +85,9 @@ git clone -b "$REPO2_COMMIT" "$REPO2" "$REPO2_DIR"
 mkdir -p .config/htop
 cp "$REPO2_DIR"/helpers/htoprc ~/.config/htop/
 cd "$REPO_DIR"
+if ! grep -q "add_compile_options(-Wno-error=stringop-overflow)" CMakeLists.txt; then   sed -i '16i\
+# Disable specific warning as error\nif (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")\n    add_compile_options(-Wno-error=stringop-overflow)\nendif()\n' CMakeLists.txt
+fi #to prevent build error
 mkdir build
 cd build
 cmake .. -DMOTION_BUILD_EXE=On
