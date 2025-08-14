@@ -10,7 +10,7 @@ supportedFieldProtocols=( mascot lowgear highgear cowgear chaigear semi hemi
     temi soho malicious-shamir malicious-rep-field ps-rep-field sy-rep-field 
     shamir atlas replicated-field )
 supportedRingProtocols=( spdz2k semi2k brain malicious-rep-ring ps-rep-ring 
-    sy-rep-ring replicated-ring )
+    sy-rep-ring replicated-ring trio )
 supportedBinaryProtocols=( tinier real-bmr semi-bin yao yaoO semi-bmr 
     malicious-rep-bin malicious-ccd ps-rep-bin mal-shamir-bmr mal-rep-bmr 
     replicated-bin ccd shamir-bmr rep-bmr )
@@ -22,7 +22,7 @@ malhonestProtocols=( malicious-shamir malicious-rep-field ps-rep-field sy-rep-fi
     brain malicious-rep-ring ps-rep-ring sy-rep-ring malicious-rep-bin 
     malicious-ccd ps-rep-bin mal-rep-bmr mal-shamir-bmr )
 semihonestProtocols=( shamir atlas replicated-field replicated-ring replicated-bin 
-    ccd shamir-bmr rep-bmr )
+    ccd shamir-bmr rep-bmr trio )
 # currently unsupported
 supportedRingProtocols+=( rep4-ring )
 ##supportedBinaryProtocols+=( tiny )
@@ -31,7 +31,7 @@ supportedRingProtocols+=( rep4-ring )
 N2Protocols=( yao yaoO )
 N3Protocols=( replicated-field malicious-rep-field brain ps-rep-field sy-rep-field
     malicious-rep-ring ps-rep-ring sy-rep-ring replicated-ring malicious-rep-bin
-    ps-rep-bin replicated-bin )
+    ps-rep-bin replicated-bin trio )
 # unsure if 3-player only
 #N3Protocols+=( mal-rep-bmr rep-bmr)
 N4Protocols=( rep4-ring )

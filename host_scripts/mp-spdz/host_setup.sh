@@ -54,9 +54,12 @@ git clone "$REPO2" "$REPO2_DIR"
 # load custom htop config
 mkdir -p .config/htop
 cp "$REPO2_DIR"/helpers/htoprc ~/.config/htop/
-wget https://github.com/data61/MP-SPDZ/releases/download/v0.3.8/mp-spdz-0.3.8.tar.xz
-tar -xf mp-spdz-0.3.8.tar.xz 
-mv mp-spdz-0.3.8 "$REPO_DIR"
+# wget https://github.com/data61/MP-SPDZ/releases/download/v0.3.8/mp-spdz-0.3.8.tar.xz
+# tar -xf mp-spdz-0.3.8.tar.xz 
+# mv mp-spdz-0.3.8 "$REPO_DIR"
+https://github.com/data61/MP-SPDZ/releases/download/v0.4.1/mp-spdz-0.4.1.tar.xz
+tar -xf mp-spdz-0.4.1.tar.xz
+mv mp-spdz-0.4.1 "$REPO_DIR"
 cd "$REPO_DIR"
 ./Scripts/tldr.sh
 
