@@ -15,6 +15,7 @@ REPO2=$(pos_get_variable repo --from-global)
 REPO2_DIR=$(pos_get_variable repo_dir --from-global)
 EXPERIMENT=$(pos_get_variable experiment --from-global)
 FRAMEWORK=$(pos_get_variable framework --from-global)
+PROTOCOLS=$(pos_get_variable protocols --from-global)
 # SMC protocols to compile
 
 
@@ -54,14 +55,11 @@ git clone "$REPO2" "$REPO2_DIR"
 # load custom htop config
 mkdir -p .config/htop
 cp "$REPO2_DIR"/helpers/htoprc ~/.config/htop/
-# wget https://github.com/data61/MP-SPDZ/releases/download/v0.3.8/mp-spdz-0.3.8.tar.xz
-# tar -xf mp-spdz-0.3.8.tar.xz 
-# mv mp-spdz-0.3.8 "$REPO_DIR"
 wget https://github.com/data61/MP-SPDZ/releases/download/v0.4.1/mp-spdz-0.4.1.tar.xz
 tar -xf mp-spdz-0.4.1.tar.xz
 mv mp-spdz-0.4.1 "$REPO_DIR"
 cd "$REPO_DIR"
-./Scripts/tldr.sh
+
 
 
 cp "$REPO2_DIR"/experiments/"$FRAMEWORK"/"$EXPERIMENT"/experiment.mpc \
@@ -88,5 +86,13 @@ if [ "$compflags" != None ]; then
 		echo "MY_CFLAGS += $compflags" >> CONFIG.mine
 	fi
 fi
-echo "MOD = -DRING_SIZE=32" >> CONFIG.mine
+echo "MOD = -DRING_SIZE=32" >> CONFIG.mine 
+
+# ./Scripts/tldr.sh -> only for > 32 bit
+# manually compile protocols
+apt-get install -y automake build-essential clang cmake git libboost-dev libboost-filesystem-dev libboost-iostreams-dev libboost-thread-dev libgmp-dev libntl-dev libsodium-dev libssl-dev libtool python3
+for protocol in $PROTOCOLS; do
+    make -j "$protocol" || { echo "Failed to compile $protocol"; exit 1; }
+done
+
 echo "global setup successful "
