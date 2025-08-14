@@ -88,4 +88,5 @@ if [ "$compflags" != None ]; then
 		echo "MY_CFLAGS += $compflags" >> CONFIG.mine
 	fi
 fi
+echo "MOD = -DRING_SIZE=32" >> CONFIG.mine
 echo "global setup successful "
