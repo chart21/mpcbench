@@ -15,9 +15,6 @@ REPO2=$(pos_get_variable repo --from-global)
 REPO2_DIR=$(pos_get_variable repo_dir --from-global)
 EXPERIMENT=$(pos_get_variable experiment --from-global)
 FRAMEWORK=$(pos_get_variable framework --from-global)
-read -r -a protocols <<< "$3"
-
-# SMC protocols to compile
 
 
 # check WAN connection, waiting helps in most cases
@@ -92,8 +89,5 @@ echo "MOD = -DRING_SIZE=32" >> CONFIG.mine
 # ./Scripts/tldr.sh -> only for > 32 bit
 # manually compile protocols
 apt-get install -y automake build-essential clang cmake git libboost-dev libboost-filesystem-dev libboost-iostreams-dev libboost-thread-dev libgmp-dev libntl-dev libsodium-dev libssl-dev libtool python3
-for protocol in "${protocols[@]}"; do
-    make -j "$protocol" || { echo "Failed to compile $protocol"; exit 1; }
-done
 
 echo "global setup successful "
