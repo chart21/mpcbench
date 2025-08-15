@@ -119,7 +119,7 @@ esac
 ####
 
 for protocol in "${protocols[@]}"; do
-    make -j "${protocol}" || { echo "Failed to compile $protocol"}
+    make -j "${protocol}" 
 
     log=testresults"$cdomain""${protocol::-8}"
     touch "$log"
