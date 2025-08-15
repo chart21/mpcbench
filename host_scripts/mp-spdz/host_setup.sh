@@ -85,6 +85,7 @@ if [ "$compflags" != None ]; then
 	fi
 fi
 echo "MOD = -DRING_SIZE=32" >> CONFIG.mine 
+mkdir Player-Data 2> /dev/null
 
 # ./Scripts/tldr.sh -> only for > 32 bit
 # manually compile protocols
