@@ -47,6 +47,10 @@ apt install -y automake git libboost-dev libboost-thread-dev \
     libntl-dev libgmp-dev libsodium-dev libssl-dev libtool m4 python3 texinfo yasm \
     python3-pip time parted software-properties-common iperf3
 pip3 install -U numpy torch
+
+echo "installing additional dependencies"
+apt install -y automake build-essential clang cmake git libboost-dev libboost-filesystem-dev libboost-iostreams-dev libboost-thread-dev libgmp-dev libntl-dev libsodium-dev libssl-dev libtool python3
+
 checkConnection "github.com"
 git clone "$REPO2" "$REPO2_DIR"
 
@@ -89,7 +93,5 @@ mkdir Player-Data 2> /dev/null
 
 # ./Scripts/tldr.sh -> only for > 32 bit
 # manually compile protocols
-echo "installing additional dependencies"
-apt-get install -y automake build-essential clang cmake git libboost-dev libboost-filesystem-dev libboost-iostreams-dev libboost-thread-dev libgmp-dev libntl-dev libsodium-dev libssl-dev libtool python3
 
 echo "global setup successful "
