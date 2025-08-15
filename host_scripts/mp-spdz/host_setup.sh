@@ -88,6 +88,7 @@ echo "MOD = -DRING_SIZE=32" >> CONFIG.mine
 
 # ./Scripts/tldr.sh -> only for > 32 bit
 # manually compile protocols
+echo "installing additional dependencies"
 apt-get install -y automake build-essential clang cmake git libboost-dev libboost-filesystem-dev libboost-iostreams-dev libboost-thread-dev libgmp-dev libntl-dev libsodium-dev libssl-dev libtool python3
 
 echo "global setup successful "
