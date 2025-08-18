@@ -126,7 +126,7 @@ for protocol in "${protocols[@]}"; do
 
     success=true
 
-    pos_sync --timeout 300
+    pos_sync --timeout 3000
 
     # Some protocols are only for 2,3 or 4 parties
     # they imply the flag -N so it's not allowed
