@@ -26,7 +26,8 @@ program.options_from_args()
 #batch=X_train_0.shape[0]
 
 batch = int(program.args[1])
-dim = int(program.args[2])
+#dim = int(program.args[2])
+dim = 5 # workaround
 ml.Layer.back_batch_size=batch
 
 n_iterations = 100

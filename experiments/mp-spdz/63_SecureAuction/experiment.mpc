@@ -9,7 +9,8 @@ from Compiler import types
 import math
 n_inputs = int(program.args[1])
 priceRange= int(10)
-n_parties = int(program.args[2])
+#n_parties = int(program.args[2])
+n_parties = 3 # workaround
 
 n_bits = 32
 value_type = sint
