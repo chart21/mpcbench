@@ -44,7 +44,7 @@ cd "$REPO_DIR"
         if [ ! -f "$binarypath" ]; then
         case "$cdomain" in
             RING) 
-                /bin/time -f "$timerf" ./compile.py -R 64 -Z 3 --budget 200000 experiment "$size" "$partysize" "$etype";;
+                /bin/time -f "$timerf" ./compile.py -R 64 -Z 4 --budget 200000 experiment "$size" "$partysize" "$etype";;
             BINARY) 
                 /bin/time -f "$timerf" ./compile.py -B 64 --budget 200000 experiment "$size" "$partysize" "$etype";;
             *) # default to FIELD
