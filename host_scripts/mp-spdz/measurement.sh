@@ -44,9 +44,9 @@ cd "$REPO_DIR"
         if [ ! -f "$binarypath" ]; then
         case "$cdomain" in
             RING) 
-                /bin/time -f "$timerf" ./compile.py -R 32 -Z 2 --budget 200000 experiment "$size" "$partysize" "$etype";;
+                /bin/time -f "$timerf" ./compile.py -R 64 --budget 200000 experiment "$size" "$partysize" "$etype";;
             BINARY) 
-                /bin/time -f "$timerf" ./compile.py -B 32 --budget 200000 experiment "$size" "$partysize" "$etype";;
+                /bin/time -f "$timerf" ./compile.py -B 64 --budget 200000 experiment "$size" "$partysize" "$etype";;
             *) # default to FIELD
                 /bin/time -f "$timerf" ./compile.py -Y --budget 200000 experiment "$size" "$partysize" "$etype";;
         esac
@@ -57,9 +57,9 @@ cd "$REPO_DIR"
         if [ ! -f "$binarypath" ]; then
         case "$cdomain" in
             RING) 
-                /bin/time -f "$timerf" ./compile.py -R 32 --budget 200000 experiment "$size" "$features" "$partysize" "$etype";;
+                /bin/time -f "$timerf" ./compile.py -R 64 --budget 200000 experiment "$size" "$features" "$partysize" "$etype";;
             BINARY) 
-                /bin/time -f "$timerf" ./compile.py -B 32 --budget 200000 experiment "$size" "$features" "$partysize" "$etype";;
+                /bin/time -f "$timerf" ./compile.py -B 64 --budget 200000 experiment "$size" "$features" "$partysize" "$etype";;
             *) # default to FIELD
                 /bin/time -f "$timerf" ./compile.py --budget 200000 experiment "$size" "$features" "$partysize" "$etype";;
         esac
